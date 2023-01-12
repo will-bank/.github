@@ -1,0 +1,13 @@
+{
+    "name": "CI/CD Kubernetes",
+    "description": "Github actions to deploy application in the cluster Kubernetes.",
+    "iconName": "Kubernetes",
+    "categories": [
+        "Deployment"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
