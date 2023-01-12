@@ -1,7 +1,7 @@
 {
     "name": "Octo Organization Workflow",
     "description": "Octo Organization CI starter workflow.",
-    "iconName": "golang-color-icon.svg",
+    "iconName": "golang-color-icon",
     "categories": [
         "Go"
     ],
