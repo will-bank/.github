@@ -6,7 +6,7 @@ on:
     inputs:
       ENVIRONMENT:
         type: choice
-        description: 'You can set this for true if you want see more logs.'     
+        description: 'Environment to run pipeline.'     
         required: false
         default: development
         options: 
@@ -16,19 +16,25 @@ on:
 
       WILL_PIPELINES_DEBUG:
         type: boolean
-        description: 'You can set this for true if you want see more logs.'     
-        required: false
-        default: true
+        description: 'You can check box if you want see more logs.'     
+        default: false
         options: 
           - true
           - false
 
 jobs:
-  build:
+  plan:
     runs-on: ubuntu-latest
+    container:
+      image: 142401413602.dkr.ecr.sa-east-1.amazonaws.com/will-pipelines-terraform-image:1.0.0
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+      - name: Terraform Plan
+        run: |
+          echo Here will run the plan
+
+      - name: Terraform Apply
+        run: |
+          echo Here will run the apply
