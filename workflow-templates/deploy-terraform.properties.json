@@ -1,0 +1,13 @@
+{
+    "name": "Deploy Terraform",
+    "description": "Github actions for deploy infraestructure in Terraform.",
+    "iconName": "terraform",
+    "categories": [
+        "Deployment"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
