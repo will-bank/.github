@@ -26,7 +26,7 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     container:
-      image: 142401413602.dkr.ecr.sa-east-1.amazonaws.com/will-pipelines-terraform-image:1.0.0
+      image: image_uri
 
     steps:
       - uses: actions/checkout@v3
