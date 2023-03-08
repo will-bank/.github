@@ -1,5 +1,5 @@
 name: Deploy Kubernetes
-
+run-name: ${{ github.actor }} deploy kubernetes ${{ github.run_number }}
 on:
   workflow_dispatch:
     inputs:
@@ -12,9 +12,16 @@ on:
           - development
           - staging
           - production
-        
+
+permissions:
+  id-token: write
+  contents: write   
+  actions: write
+
 jobs:
   template:
     uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes.yaml@main     
     with:
       ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
+    secrets:
+      WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
