@@ -1,0 +1,20 @@
+name: Deploy Kubernetes
+
+on:
+  workflow_dispatch:
+    inputs:
+      ENVIRONMENT:
+        type: choice
+        description: 'Environment to run pipeline.'     
+        required: false
+        default: development
+        options: 
+          - development
+          - staging
+          - production
+        
+jobs:
+  reusable-workflow-call:
+    uses: will-bank/worflow-templates/.github/workflows/deploy-kubernetes.yaml@main
+    with:
+      ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}

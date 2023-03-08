@@ -1,7 +1,7 @@
 {
-    "name": "Deploy Terraform",
-    "description": "Github actions for deploy infraestructure in Terraform.",
-    "iconName": "terraform",
+    "name": "Deploy Kubernetes",
+    "description": "A simple workflow for you to deploy your Kubernetes application",
+    "iconName": "Kubernetes",
     "categories": [
         "Deployment"
     ],
