@@ -10,4 +10,4 @@ on:
         
 jobs:
   reusable-workflow-call:
-    uses: will-bank/test-workflow/.github/workflows/reusable_workflow.yaml@v1.0.0
+    uses: will-bank/test-workflow/.github/workflows/reusable_workflow.yml@v1.0.0
