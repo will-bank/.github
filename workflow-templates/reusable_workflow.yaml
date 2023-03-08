@@ -1,0 +1,13 @@
+name: Deploy Terraform
+
+on:
+  workflow_dispatch:
+    inputs:
+      parameter:
+        description: 'Parameter value'
+        required: true
+        type: string
+        
+jobs:
+  call-workflow-1-in-local-repo:
+    uses: will-bank/test-workflow/.github/workflows/reusable_workflow.yaml@v1.0.0
