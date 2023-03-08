@@ -1,4 +1,4 @@
-name: Deploy Terraform
+name: Workflow Example
 
 on:
   workflow_dispatch:
@@ -9,5 +9,5 @@ on:
         type: string
         
 jobs:
-  call-workflow-1-in-local-repo:
+  reusable-workflow-call:
     uses: will-bank/test-workflow/.github/workflows/reusable_workflow.yaml@v1.0.0
