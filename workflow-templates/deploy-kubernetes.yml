@@ -15,6 +15,7 @@ on:
         
 jobs:
   reusable-workflow-call:
-    uses: will-bank/worflow-templates/.github/workflows/deploy-kubernetes.yaml@main
+    uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes.yaml@main
+                  
     with:
       ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
