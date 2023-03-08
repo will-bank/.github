@@ -1,7 +1,7 @@
 {
     "name": "Deploy Kubernetes",
     "description": "A simple workflow for you to deploy your Kubernetes application",
-    "iconName": "Kubernetes",
+    "iconName": "kubernetes",
     "categories": [
         "Deployment"
     ],
