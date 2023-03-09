@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   template:
-    uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes.yaml@main     
+    uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes-application.yaml@main     
     with:
       ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
     secrets:
