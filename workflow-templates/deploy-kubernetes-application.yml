@@ -6,12 +6,54 @@ on:
       ENVIRONMENT:
         type: choice
         description: 'Environment to run pipeline'
-        required: false
+        required: true
         default: development
         options:
           - development
           - staging
           - production
+      
+      BUILD_ENABLE:
+        type: choice
+        description: 'For run step Build Docker Image'
+        required: true
+        default: true
+        options:
+          - true
+          - false
+      
+      BUILD_ARGS:
+        type: string
+        description: 'To set any args for the build'
+        required: false
+        default: "no"
+      
+      BUILD_PUSH_ECR:
+        type: choice
+        description: 'To push image to ECR'
+        required: true
+        default: true
+        options:
+          - true
+          - false
+
+      KUBERNETES_MANAGER:
+        type: choice
+        description: 'To set kubernetes manager (helm or kustomize)'
+        required: true
+        default: kustomize
+        options:
+          - kustomize
+          - helm
+      
+      KUBERNETES_UPDATE_IMAGE_TAG:
+        type: choice
+        description: 'For run step Update Image Tag'
+        required: true
+        default: true
+        options:
+          - true
+          - false
 
 permissions:
   id-token: write
@@ -24,5 +66,10 @@ jobs:
     uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
     with:
       ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
+      BUILD_ENABLE: ${{ github.event.inputs.BUILD_ENABLE }}
+      BUILD_ARGS: ${{ github.event.inputs.BUILD_ARGS }}
+      BUILD_PUSH_ECR: ${{ github.event.inputs.BUILD_PUSH_ECR }}
+      KUBERNETES_MANAGER: ${{ github.event.inputs.KUBERNETES_MANAGER }}
+      KUBERNETES_UPDATE_IMAGE_TAG: ${{ github.event.inputs.KUBERNETES_UPDATE_IMAGE_TAG }}
     secrets:
       PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
