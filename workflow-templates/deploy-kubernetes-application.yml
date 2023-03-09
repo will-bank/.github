@@ -5,10 +5,10 @@ on:
     inputs:
       ENVIRONMENT:
         type: choice
-        description: 'Environment to run pipeline.'     
+        description: 'Environment to run pipeline'
         required: false
         default: development
-        options: 
+        options:
           - development
           - staging
           - production
@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   template:
-    uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes-application.yaml@main     
+    uses: will-bank/workflow-templates/.github/workflows/deploy-kubernetes-application.yml@main     
     with:
       ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
     secrets:
