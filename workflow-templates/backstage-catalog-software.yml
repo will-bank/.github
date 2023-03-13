@@ -1,0 +1,14 @@
+name: Backstage Catalog Software
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  workflow:
+    # See more about workflow in this doc https://github.com/will-bank/backstage-catalog-software-workflow#readme
+    uses: will-bank/backstage-catalog-software-workflow/.github/workflows/backstage-catalog-software.yml@main     
+    secrets:
+      PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
