@@ -1,0 +1,8 @@
+{
+    "name": "Catalog Software and TechDocs",
+    "description": "A simple workflow for you to catalog your Application or Documentation in the Backstage",
+    "iconName": "backstage-logo",
+    "categories": [
+        "Deployment"
+    ]
+}
