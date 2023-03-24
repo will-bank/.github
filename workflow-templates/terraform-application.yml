@@ -24,3 +24,4 @@ jobs:
     with:
       path: ${{ inputs.path }}
       environment: ${{ inputs.environment }}
+    secrets: inherit
