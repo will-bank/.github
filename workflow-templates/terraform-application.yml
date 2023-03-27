@@ -17,6 +17,14 @@ on:
           - 'development'
           - 'staging'
           - 'production'
+      terraform_apply:
+        description: 'Terraform Apply'
+        required: true
+        default: false
+        type: choice
+        options:
+          - true
+          - false
 
 jobs:
   workflow:
@@ -24,4 +32,5 @@ jobs:
     with:
       path: ${{ inputs.path }}
       environment: ${{ inputs.environment }}
+      terraform_apply: ${{ inputs.terraform_apply }}
     secrets: inherit
