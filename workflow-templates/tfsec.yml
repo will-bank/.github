@@ -1,0 +1,16 @@
+name: TFSec
+
+on:
+  workflow_dispatch:
+#     inputs:
+#       parameter:
+#         description: 'Parameter value'
+#         required: true
+#         type: string
+        
+jobs:
+  reusable-workflow-call:
+    uses: will-bank/appsec-scripts/.github/workflows/tfsec.yml@main
+#     with:
+#       SECRET: ${{ secrets.secret }}
+#       PARAMETER: ${{ inputs.parameter }}
