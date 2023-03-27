@@ -20,7 +20,7 @@ on:
 
 jobs:
   workflow:
-    uses: will-bank/reusable-workflows/.github/workflows/terraform-application.yml@main
+    uses: will-bank/terraform-application-workflow/.github/workflows/terraform-application.yml@main
     with:
       path: ${{ inputs.path }}
       environment: ${{ inputs.environment }}
