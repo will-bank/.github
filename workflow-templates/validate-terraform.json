@@ -3,7 +3,6 @@
     "description": "A workflow to run validations in the Terraform code",
     "iconName": "terraform-logo",
     "categories": [
-        "deployment",
-        "HCL"
+        "deployment"
     ]
 }
