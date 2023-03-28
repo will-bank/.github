@@ -1,0 +1,12 @@
+name: Validate Terraform
+run-name: Validate Terraform by ${{ github.actor }} ${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow:
+    uses: will-bank/validate-terraform-workflow/.github/workflows/validate-terraform.yml@main
+    with:
+      path: iac/terraform
+      environment: [development, staging, production]
