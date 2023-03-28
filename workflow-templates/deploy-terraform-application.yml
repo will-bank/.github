@@ -1,5 +1,5 @@
-name: Terraform Application
-run-name: Deploy Terraform to ${{ inputs.ENVIRONMENT }} by ${{ github.actor }}
+name: Deploy Terraform Application
+run-name: Deploy Terraform to ${{ inputs.ENVIRONMENT }} by ${{ github.actor }} ${{ github.run_number }}
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ on:
 
 jobs:
   workflow:
-    uses: will-bank/terraform-application-workflow/.github/workflows/terraform-application.yml@main
+    uses: will-bank/deploy-terraform-application-workflow/.github/workflows/deploy-terraform-application.yml@main
     with:
       path: ${{ inputs.path }}
       environment: ${{ inputs.environment }}

@@ -1,5 +1,6 @@
 name: Deploy Kubernetes Application
-run-name: ${{ github.actor }} Deploy Kubernetes Application ${{ github.run_number }}
+run-name: Deploy Kubernetes Application in ${{ inputs.ENVIRONMENT }} by ${{ github.actor }} ${{ github.run_number }}
+
 on:
   workflow_dispatch:
     inputs:
