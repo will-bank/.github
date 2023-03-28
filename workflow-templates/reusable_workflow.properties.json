@@ -1,9 +1,0 @@
-{
-    "name": "Example workflow",
-    "description": "Workflow example.",
-    "categories": [
-        "Example"
-    ],
-    "filePatterns": [
-    ]
-}

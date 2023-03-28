@@ -23,7 +23,7 @@ jobs:
     # See more about workflow in this doc https://github.com/will-bank/deploy-kubernetes-application-workflow#readme
     uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
     with:
-      ENVIRONMENT: ${{ github.event.inputs.ENVIRONMENT }}
+      ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
       BUILD_ENABLE: true
       BUILD_ARGS: "no"
       BUILD_PUSH_ECR: true
