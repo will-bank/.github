@@ -1,5 +1,5 @@
-name: Deploy Kubernetes Application
-run-name: Deploy Kubernetes Application in ${{ inputs.ENVIRONMENT }} by ${{ github.actor }} ${{ github.run_number }}
+name: Build Deploy Kubernetes Application
+run-name: Build Deploy Kubernetes Application in ${{ inputs.ENVIRONMENT }} by ${{ github.actor }} ${{ github.run_number }}
 
 on:
   workflow_dispatch:
@@ -25,10 +25,6 @@ jobs:
     uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      BUILD_ENABLE: true
       BUILD_ARGS: "no"
-      BUILD_PUSH_ECR: true
-      KUBERNETES_MANAGER: kustomize
-      KUBERNETES_UPDATE_IMAGE_TAG: true
     secrets:
       PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
