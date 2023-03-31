@@ -1,0 +1,30 @@
+name: Deploy Kubernetes Application
+run-name: Deploy Kubernetes Application in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      ENVIRONMENT:
+        type: choice
+        description: 'Environment to run pipeline'
+        required: true
+        default: development
+        options:
+          - development
+          - staging
+          - production
+
+permissions:
+  id-token: write
+  contents: write
+  actions: write
+
+jobs:
+  workflow:
+    # See more about workflow in this doc https://github.com/will-bank/deploy-kubernetes-application-workflow#readme
+    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
+    with:
+      ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+      BUILD_ARGS: "no"
+    secrets:
+      PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
