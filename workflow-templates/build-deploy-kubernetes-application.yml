@@ -21,8 +21,8 @@ permissions:
 
 jobs:
   workflow:
-    # See more about workflow in this doc https://github.com/will-bank/deploy-kubernetes-application-workflow#readme
-    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
+    # See more about workflow in this doc https://github.com/will-bank/build-deploy-kubernetes-application-workflow#readme
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@main     
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
       BUILD_ARGS: "no"
