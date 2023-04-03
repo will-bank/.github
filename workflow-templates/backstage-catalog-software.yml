@@ -1,4 +1,6 @@
 name: Backstage Catalog Software
+run-name: Backstage Catalog Software by ${{ github.actor }} ${{ github.run_number }}
+
 on:
   workflow_dispatch:
 
