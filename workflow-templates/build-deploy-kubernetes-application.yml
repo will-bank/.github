@@ -1,6 +1,9 @@
 name: Build Deploy Kubernetes Application
 run-name: Build Deploy Kubernetes Application in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
 
+# Before running this workflow checkout its pre-requisites at:
+#   https://github.com/will-bank/build-deploy-kubernetes-application-workflow#readme
+
 on:
   workflow_dispatch:
     inputs:
@@ -21,10 +24,9 @@ permissions:
 
 jobs:
   workflow:
-    # See more about workflow in this doc https://github.com/will-bank/build-deploy-kubernetes-application-workflow#readme
     uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.2.1     
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      BUILD_ARGS: "no"
+      # BUILD_ARGS: "--build-arg ENVIRONMENT=${{ inputs.ENVIRONMENT }}"
     secrets:
       PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
