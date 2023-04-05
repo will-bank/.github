@@ -1,6 +1,9 @@
 name: Deploy Kubernetes Application
 run-name: Deploy Kubernetes Application in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
 
+# Before running this workflow checkout its prerequisites at:
+# https://github.com/will-bank/deploy-kubernetes-application-workflow#readme
+
 on:
   workflow_dispatch:
     inputs:
@@ -21,7 +24,6 @@ permissions:
 
 jobs:
   workflow:
-    # See more about workflow in this doc https://github.com/will-bank/deploy-kubernetes-application-workflow#readme
     uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@main     
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
