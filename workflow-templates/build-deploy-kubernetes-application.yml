@@ -27,6 +27,7 @@ jobs:
     uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.3.0  
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      # BUILD_ARGS: "--build-arg ENVIRONMENT=${{ inputs.ENVIRONMENT }}"
+      # BUILD_ARGS: |
+      #   --build-arg ENVIRONMENT=${{ inputs.ENVIRONMENT }}
     secrets:
       PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
