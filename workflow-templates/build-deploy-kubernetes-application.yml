@@ -1,7 +1,7 @@
 name: Build Deploy Kubernetes Application
 run-name: Build Deploy Kubernetes Application in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
 
-# Before running this workflow checkout its pre-requisites at:
+# Before running this workflow checkout its prerequisites at:
 #   https://github.com/will-bank/build-deploy-kubernetes-application-workflow#readme
 
 on:
