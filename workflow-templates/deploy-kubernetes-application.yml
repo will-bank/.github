@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.1.0     
+    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.1.1     
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
     secrets:
