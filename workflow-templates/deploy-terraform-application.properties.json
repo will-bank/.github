@@ -1,8 +1,8 @@
-{
-    "name": "Deploy Terraform Application",
-    "description": "A workflow to deploy Terraform code placed on source code repository",
-    "iconName": "terraform-logo",
-    "categories": [
-        "deployment"
-    ]
-}
+// {
+//     "name": "Deploy Terraform Application",
+//     "description": "A workflow to deploy Terraform code placed on source code repository",
+//     "iconName": "terraform-logo",
+//     "categories": [
+//         "deployment"
+//     ]
+// }
