@@ -3,6 +3,9 @@
     "description": "A simple workflow for you to build and deploy your Kubernetes application",
     "iconName": "kubernetes-logo",
     "categories": [
-        "Deployment"
+        "Deployment",
+        "Docker",
+        "ArgoCD",
+        "Kubernetes
     ]
 }
