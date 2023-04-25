@@ -1,0 +1,8 @@
+{
+    "name": "Deploy Lambda Serverless Framework",
+    "description": "Simple workflow that deploy a Lambda function in the AWS.",
+    "iconName": "serverless-logo",
+    "categories": [
+        "Deployment"
+    ]
+}

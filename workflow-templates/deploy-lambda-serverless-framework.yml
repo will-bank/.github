@@ -1,0 +1,28 @@
+name: Deploy Lambda
+run-name: Deploy Lambda function in by ${{ github.actor }} ${{ github.run_number }}
+
+# Before running this workflow checkout its prerequisites at:
+# https://github.com/will-bank/build-deploy-kubernetes-application-workflow#readme
+
+on:
+  workflow_dispatch:
+    inputs:
+      STAGE:
+        type: choice
+        description: 'Environment to run pipeline'
+        required: true
+        default: dev
+        options:
+          - development
+          - production
+
+permissions:
+  id-token: write
+  contents: write
+  actions: write
+
+jobs:
+  workflow:
+    uses: will-bank/deploy-lambda-serverless-workflow/.github/workflows/deploy-lambda-serverless.yml@feature/FSRE-612
+    with:
+      STAGE: ${{ inputs.STAGE }}
