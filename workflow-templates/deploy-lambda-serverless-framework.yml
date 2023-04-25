@@ -23,6 +23,6 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/deploy-lambda-serverless-workflow/.github/workflows/deploy-lambda-serverless.yml@feature/FSRE-612
+    uses: will-bank/deploy-lambda-serverless-workflow/.github/workflows/deploy-lambda-serverless.yml@v0.1.0
     with:
       STAGE: ${{ inputs.STAGE }}
