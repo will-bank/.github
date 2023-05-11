@@ -24,12 +24,12 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.5.1 
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.8.0
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      # BUILD_ARGS: |
-      #  --build-arg BUILD_NUMBER=${{ github.run_number }} \
-      #  --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
-      #  --build-arg BUILD_REF=${{ github.sha }}
-    secrets:
-      PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
+      # DOCKER_BUILD_ARGS: |
+      #   NPM_TOKEN
+      #   BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+      #   BUILD_NUMBER=${{ github.run_number }}
+      #   BUILD_REF=${{ github.sha }}
+    secrets: inherit
