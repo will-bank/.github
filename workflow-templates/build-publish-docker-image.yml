@@ -4,6 +4,10 @@ run-name: Build Publish Docker image by ${{ github.actor }} ${{ github.run_numbe
 on:
   workflow_dispatch:
 
+# Declare this env with your registry repository name of your image.
+env:
+  REGISTRY_REPOSITORY_NAME: <REGISTRY-REPOSITORY-NAME>
+
 permissions:
   id-token: write
   contents: write
@@ -29,7 +33,7 @@ jobs:
       # You can see more details about this action in the link below:
       # https://github.com/will-bank/build-docker-image-action#readme
       - name: Build and Push Docker Image
-        uses: will-bank/build-docker-image-action@v0.4.0
+        uses: will-bank/build-docker-image-action@v0.5.0
         with:
-          application-name: atlantis
+          registry-repository-name: ${{ env.REGISTRY_REPOSITORY_NAME }}
           dockerfile-path: Dockerfile
