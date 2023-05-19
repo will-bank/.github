@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.8.0
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.9.2
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
       # DOCKER_BUILD_ARGS: |
