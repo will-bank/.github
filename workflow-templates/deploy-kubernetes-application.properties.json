@@ -1,6 +1,6 @@
 {
     "name": "Deploy Kubernetes Application",
-    "description": "A simple workflow for you to deploy your Kubernetes application without building a Dockerfile",
+    "description": "A simple workflow for you to deploy your Kubernetes application without building a Dockerfile.",
     "iconName": "kubernetes-logo",
     "categories": [
         "Deployment"
