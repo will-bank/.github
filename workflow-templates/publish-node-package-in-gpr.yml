@@ -1,0 +1,42 @@
+name: Publish Node Package in GPR
+run-name: Publish Node Package in GPR by ${{ github.actor }} ${{ github.run_number }}
+
+on:
+  # Triggers to run the workflow manually and when a release is launched.
+  workflow_dispatch:
+  release:
+    types: [created]
+
+env:
+  # Version of the node your package was built on.
+  NODE_VERSION: 16 # You can change this variable if you need.
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  publish-node-package-in-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v3
+      
+      # Official node actions, read more about in this:
+      # link https://github.com/actions/setup-node#readme
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://npm.pkg.github.com/
+      
+      - name: Install Dependencies
+        run: npm ci
+      
+      - name: Tests Package
+        run: npm test
+
+      - name: Publish Package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
