@@ -1,8 +1,0 @@
-{
-    "name": "Publish Node Package in GPR",
-    "description": "A workflow for you to publish a node packages on GPR(Github Package Registry).",
-    "iconName": "npm-logo",
-    "categories": [
-        "Deployment"
-    ]
-}
