@@ -1,5 +1,5 @@
-name: Publish Node Package in GPR
-run-name: Publish Node Package in GPR by ${{ github.actor }} ${{ github.run_number }}
+name: Publish Node Package npm in GPR
+run-name: Publish Node Package npm in GPR by ${{ github.actor }} ${{ github.run_number }}
 
 on:
   # Triggers to run the workflow manually and when a release is launched.
@@ -16,7 +16,7 @@ permissions:
   contents: read
 
 jobs:
-  publish-node-package-in-gpr:
+  publish-package:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository Code
