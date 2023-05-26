@@ -1,4 +1,4 @@
-name: Publish Node Package npm in GPR
+name: publish-java-package-mvn-in-grp.yml
 run-name: Publish Node Package npm in GPR by ${{ github.actor }} ${{ github.run_number }}
 
 on:
