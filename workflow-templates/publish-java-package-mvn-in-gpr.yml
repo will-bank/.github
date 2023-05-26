@@ -1,4 +1,4 @@
-name: publish-java-package-mvn-in-grp.yml
+name: Publish Java Package mvn in GPR
 run-name: Publish Java Package mvn in GPR by ${{ github.actor }} ${{ github.run_number }}
 
 on:
