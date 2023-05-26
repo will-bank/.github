@@ -5,7 +5,7 @@ on:
   # Triggers to run the workflow manually and when a release is launched.
   workflow_dispatch:
   release:
-    types: [created]
+    types: [created] 
 
 env:
   # Version and Distribution of the node your package was built on. 
