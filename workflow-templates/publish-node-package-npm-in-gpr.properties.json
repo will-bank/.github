@@ -1,6 +1,6 @@
 {
-    "name": "Publish Java Package mvn in GPR",
-    "description": "A workflow for you to publish a java packages using mvn on GPR(Github Package Registry).",
+    "name": "Publish Node Package npm in GPR",
+    "description": "A workflow for you to publish a node packages npm on GPR(Github Package Registry).",
     "iconName": "npm-logo",
     "categories": [
         "Deployment"
