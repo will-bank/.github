@@ -1,0 +1,8 @@
+{
+    "name": "Publish mvn Package in GPR",
+    "description": "A workflow for you to publish mvn packages on GPR(Github Package Registry).",
+    "iconName": "mvn-logo",
+    "categories": [
+        "Deployment"
+    ]
+}
