@@ -36,4 +36,4 @@ jobs:
           distribution: ${{ env.JAVA_DISTRIBUTION }}
 
       - name: Publish Package
-        run: mvn deploy -DskipTests --settings settings.xml
+        run: mvn deploy -DskipTests --settings settings.xml 
