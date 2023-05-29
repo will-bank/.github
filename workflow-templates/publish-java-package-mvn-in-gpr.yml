@@ -1,0 +1,39 @@
+name: Publish Java Package mvn in GPR
+run-name: Publish Java Package mvn in GPR by ${{ github.actor }} ${{ github.run_number }}
+
+on:
+  # Triggers to run the workflow manually and when a release is launched.
+  workflow_dispatch:
+  release:
+    types: [created] 
+
+env:
+  # Version and Distribution of the node your package was built on. 
+  # You can change this variables if you need.
+  JAVA_VERSION: '16' 
+  JAVA_DISTRIBUTION: 'corretto'
+  # Github User and PAT(Personal Access Token) to authentication with GPR(Github Packages Registry)
+  GH_USERNAME: willbank-platforms 
+  GH_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
+
+permissions:
+  contents: read
+  packages: write
+  
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      # Official node actions, read more about in this:
+      # link https://github.com/actions/setup-java#readme
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+
+      - name: Publish Package
+        run: mvn deploy -DskipTests --settings settings.xml 
