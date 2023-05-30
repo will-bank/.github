@@ -8,13 +8,13 @@ on:
     types: [created] 
 
 env:
-  # Version and Distribution of the node your package was built on. 
+  # Version and Distribution of the Java mvn your package was built on. 
   # You can change this variables if you need.
   JAVA_VERSION: '16' 
   JAVA_DISTRIBUTION: 'corretto'
   # Github User and PAT(Personal Access Token) to authentication with GPR(Github Packages Registry)
   GH_USERNAME: willbank-platforms 
-  GH_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
+  GH_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_GPR_TOKEN }}
 
 permissions:
   contents: read
