@@ -8,7 +8,7 @@ on:
     types: [created] 
 
 env:
-  # Version and Distribution of the Java mvn your package was built on. 
+  # Version and Distribution of the Java your package was built on. 
   # You can change this variables if you need.
   JAVA_VERSION: '16' 
   JAVA_DISTRIBUTION: 'corretto'
