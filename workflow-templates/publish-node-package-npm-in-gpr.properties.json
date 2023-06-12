@@ -3,6 +3,6 @@
     "description": "A workflow for you to publish a node packages npm on GPR(Github Package Registry).",
     "iconName": "npm-logo",
     "categories": [
-        "Deployment"
+        "JavaScript"
     ]
 }

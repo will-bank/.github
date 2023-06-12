@@ -3,6 +3,6 @@
     "description": "A workflow for you to publish a java packages using mvn on GPR(Github Package Registry).",
     "iconName": "maven-logo",
     "categories": [
-        "Deployment"
+        "Java"
     ]
 }
