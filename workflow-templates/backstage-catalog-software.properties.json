@@ -3,6 +3,6 @@
     "description": "A simple workflow for you to catalog your Application and TechDocs in the Backstage.",
     "iconName": "backstage-logo",
     "categories": [
-        "Deployment"
+        "Utility"
     ]
 }
