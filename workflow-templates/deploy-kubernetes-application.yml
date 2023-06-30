@@ -24,8 +24,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.1.1     
+    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.2.0    
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-    secrets:
-      PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
+    secrets: inherit
