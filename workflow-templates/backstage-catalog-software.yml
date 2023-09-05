@@ -13,5 +13,5 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/backstage-catalog-software-workflow/.github/workflows/backstage-catalog-software.yml@v0.2.0    
+    uses: will-bank/backstage-catalog-software-workflow/.github/workflows/backstage-catalog-software.yml@v0.3.0    
     secrets: inherit

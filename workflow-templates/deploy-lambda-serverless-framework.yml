@@ -7,14 +7,22 @@ run-name: Deploy Lambda function in by ${{ github.actor }} ${{ github.run_number
 on:
   workflow_dispatch:
     inputs:
-      STAGE:
+      ENVIRONMENT:
         type: choice
         description: 'Environment to run pipeline'
         required: true
-        default: dev
+        default: development
         options:
           - development
           - production
+      STAGE:
+        type: choice
+        description: 'Stage to run pipeline'
+        required: true
+        default: dev
+        options:
+          - dev
+          - prod
 
 permissions:
   id-token: write
@@ -23,6 +31,9 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/deploy-lambda-serverless-workflow/.github/workflows/deploy-lambda-serverless.yml@v0.1.0
+    uses: will-bank/deploy-lambda-serverless-workflow/.github/workflows/deploy-lambda-serverless.yml@v0.2.1
     with:
       STAGE: ${{ inputs.STAGE }}
+      ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+    secrets:
+      PLATFORMS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}

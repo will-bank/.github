@@ -1,8 +1,0 @@
-{
-    "name": "Build Publish Docker image",
-    "description": "Simple workflow that only build and publish an image to the registry.",
-    "iconName": "docker-logo",
-    "categories": [
-        "Dockerfile"
-    ]
-}

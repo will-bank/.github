@@ -1,0 +1,8 @@
+{
+    "name": "Publish Semantic Version Release",
+    "description": "A workflow for you to publish a github release using semantic version.",
+    "iconName": "git-logo",
+    "categories": [
+        "Automation"
+    ]
+}
