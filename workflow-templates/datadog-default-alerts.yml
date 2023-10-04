@@ -1,0 +1,28 @@
+name: Create default alerts on Datadog
+run-name: Datadog default alerts creation by ${{ github.actor }} ${{ github.run_number }}
+on:
+  workflow_dispatch:
+    inputs:
+      SERVICE_NAME:
+        type: string
+        required: false
+        description: 'Service name'
+
+permissions:
+  id-token: write
+  contents: write
+  actions: write
+
+jobs:
+  create-default-alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Self Test
+        id: selftest
+        uses: will-bank/datadog-default-alerts-action@main
+        with:
+          SERVICE_NAME: ${{ inputs.SERVICE_NAME }}
+          WILL_GITHUB_ACCESS_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_PERSONAL_ACCESS_TOKEN }}
+          DD_API_KEY: ${{ secrets.DD_API_KEY }}
+          DD_APP_KEY: ${{ secrets.DD_APP_KEY }}

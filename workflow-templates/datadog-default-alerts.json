@@ -1,0 +1,8 @@
+{
+    "name": "Datadog default alerts creation",
+    "description": "A simple workflow for you to create default alerts on Datadog and point the notifications to Squadcast",
+    "iconName": "datadog-logo",
+    "categories": [
+        "Automation"
+    ]
+}
