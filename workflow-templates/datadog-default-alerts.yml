@@ -1,4 +1,4 @@
-name: Create default alerts on Datadog
+name: Datadog default alerts creation
 run-name: Datadog default alerts creation by ${{ github.actor }} ${{ github.run_number }}
 on:
   workflow_dispatch:
