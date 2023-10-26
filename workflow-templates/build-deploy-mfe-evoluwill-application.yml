@@ -90,7 +90,9 @@ jobs:
         run: pnpm test:coverage
 
       - name: Check coverage
-        run: ./scripts/mfe-evoluwill-check-coverage.sh
+        run: |
+          chmod +x ./scripts/mfe-evoluwill-check-coverage.sh
+          ./scripts/mfe-evoluwill-check-coverage.sh
 
       - name: Deploy Project
         run: |
