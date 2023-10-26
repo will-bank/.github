@@ -32,7 +32,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/cxm-workflows/.github/workflows/build-deploy-mfe-evoluwill-application.yml@latest
+    uses: will-bank/cxm-workflows/.github/workflows/build-deploy-mfe-evoluwill-application.yml@main
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
       APP_NAME: ${{ inputs.APP_NAME }}
