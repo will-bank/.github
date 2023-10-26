@@ -31,7 +31,6 @@ permissions:
   actions: write
 
 env:
-  CLOUDFRONT_ID: ${{ secrets.CLOUDFRONT_ID_EVOLUWILL_MFE }}
   GPR_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_GPR_TOKEN }}
 jobs:
   setup_build_deploy:
@@ -47,12 +46,15 @@ jobs:
 
       - name: Setup environment vars
         run: |
-          if [ ${{ inputs.ENVIRONMENT }} == "development" ]; then
+          if [ ${{ inputs.ENVIRONMENT }} == "production" ]; then
             echo "BUCKET_S3=${{ vars.PROD_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
             echo "ASSUME_ROLE=${{ vars.PROD_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_ID=${{ vars.PROD_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            
           else
             echo "BUCKET_S3=${{ vars.DEV_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
             echo "ASSUME_ROLE=${{ vars.DEV_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_ID=${{ vars.DEV_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
           fi
 
       - name: Configure AWS Credentials
@@ -92,5 +94,5 @@ jobs:
 
       - name: Deploy Project
         run: |
-          aws s3 sync ./dist s3://${env.BUCKET_S3}/evoluwill-mfe-app/${{ inputs.APP_NAME }} --delete
-          aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths "/evoluwill-mfe-app/${{ inputs.APP_NAME }}"
+          aws s3 sync ./dist s3://${env.BUCKET_S3}/evoluwill-mfe-${{ inputs.APP_NAME }} --delete
+          aws cloudfront create-invalidation --distribution-id ${env.CLOUDFRONT_ID} --paths "/evoluwill-mfe-${{ inputs.APP_NAME }}"
