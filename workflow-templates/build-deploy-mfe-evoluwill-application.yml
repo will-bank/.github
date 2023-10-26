@@ -30,86 +30,11 @@ permissions:
   contents: write
   actions: write
 
-env:
-  GPR_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_GPR_TOKEN }}
-  #DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY_EVOLUWILL-MFE-DEPLOY }}
-  #Remover apenas teste
-  DATADOG_API_KEY: de06934b494d56c5e3806a18d7c30563
-  DEV_BUCKET_S3_EVOLUWILL_MFE: will-dev-static-evoluwill-mfe
-  DEV_ROLE_EVOLUWILL_MFE: arn:aws:iam::876897421480:role/role-github-will-dev-pipeline-evoluwill-mfe
-  DEV_CLOUDFRONT_ID_EVOLUWILL_MFE: E2BUJOIQB1ZV7I
-
 jobs:
-  setup_build_deploy:
-    name: Install Test and Build
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.ENVIRONMENT }}
-    strategy:
-      matrix:
-        node-version: ["${{ inputs.NODE_VERSION }}"]
-    steps:
-      - name: Checkout Repository Code
-        uses: actions/checkout@v3
-
-      - name: Setup environment vars
-        run: |
-          if [ ${{ inputs.ENVIRONMENT }} == "production" ]; then
-            echo "BUCKET_S3=${{ vars.PROD_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "ASSUME_ROLE=${{ vars.PROD_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "CLOUDFRONT_ID=${{ vars.PROD_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            
-          else
-            # Alterar para vars
-            echo "BUCKET_S3=${{ env.DEV_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "ASSUME_ROLE=${{ env.DEV_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "CLOUDFRONT_ID=${{ env.DEV_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-          fi
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ env.ASSUME_ROLE }}
-          role-session-name: githubActions
-          aws-region: ${{ vars[format('development_{0}', 'AWS_REGION')] }}
-
-      - name: Use Node.js ${{ inputs.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ inputs.NODE_VERSION }}
-
-      - name: Install dependencies
-        run: |
-          corepack enable
-          pnpm install
-
-      - name: Create .env file
-        run: |
-          echo "$ENV_CONTENT" > .env
-        env:
-          ENV_CONTENT: ${{ secrets.ENV_FILE }}
-
-      - name: Build
-        run: pnpm build
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Run Tests
-        run: pnpm test:coverage
-
-      - name: Check coverage
-        run: |
-          chmod +x ./scripts/mfe-evoluwill-check-coverage.sh
-          ./scripts/mfe-evoluwill-check-coverage.sh
-
-      - name: Deploy Project
-        run: |
-          aws s3 sync ./dist s3://${env.BUCKET_S3}/evoluwill-mfe-${inputs.APP_NAME} --delete
-          aws cloudfront create-invalidation --distribution-id ${env.CLOUDFRONT_ID} --paths "/evoluwill-mfe-${inputs.APP_NAME}"
-
-      - name: Datadog sourcemap
-        run: |
-          npx @datadog/datadog-ci sourcemaps upload ./dist \
-            --service=evoluwill-mfe-${inputs.APP_NAME} \
-            --release-version=2.0.1-beta \
-            --minified-path-prefix=https://hostname.com/static/js
+  workflow:
+    uses: will-bank/cxm-workflows/.github/workflows/build-deploy-mfe-evoluwill-application.yml@latest
+    with:
+      ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+      APP_NAME: ${{ inputs.APP_NAME }}
+      NODE_VERSION: ${{ inputs.NODE_VERSION }}
+    secrets: inherit
