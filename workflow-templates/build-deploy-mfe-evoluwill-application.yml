@@ -37,4 +37,4 @@ jobs:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
       APP_NAME: {{ inputs.APP_NAME }}
       NODE_VERSION: {{ inputs.NODE_VERSION }}
-      secrets: inherit
+    secrets: inherit
