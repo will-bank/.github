@@ -32,6 +32,13 @@ permissions:
 
 env:
   GPR_TOKEN: ${{ secrets.WILLBANK_PLATFORMS_GPR_TOKEN }}
+  #DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY_EVOLUWILL-MFE-DEPLOY }}
+  #Remover apenas teste
+  DATADOG_API_KEY: de06934b494d56c5e3806a18d7c30563
+  DEV_BUCKET_S3_EVOLUWILL_MFE: will-dev-static-evoluwill-mfe
+  DEV_ROLE_EVOLUWILL_MFE: arn:aws:iam::876897421480:role/role-github-will-dev-pipeline-evoluwill-mfe
+  DEV_CLOUDFRONT_ID_EVOLUWILL_MFE: E2BUJOIQB1ZV7I
+
 jobs:
   setup_build_deploy:
     name: Install Test and Build
@@ -52,9 +59,10 @@ jobs:
             echo "CLOUDFRONT_ID=${{ vars.PROD_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
             
           else
-            echo "BUCKET_S3=${{ vars.DEV_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "ASSUME_ROLE=${{ vars.DEV_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
-            echo "CLOUDFRONT_ID=${{ vars.DEV_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            # Alterar para vars
+            echo "BUCKET_S3=${{ env.DEV_BUCKET_S3_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            echo "ASSUME_ROLE=${{ env.DEV_ROLE_EVOLUWILL_MFE }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_ID=${{ env.DEV_CLOUDFRONT_ID_EVOLUWILL_MFE }}" >> $GITHUB_ENV
           fi
 
       - name: Configure AWS Credentials
@@ -96,5 +104,12 @@ jobs:
 
       - name: Deploy Project
         run: |
-          aws s3 sync ./dist s3://${env.BUCKET_S3}/evoluwill-mfe-${{ inputs.APP_NAME }} --delete
-          aws cloudfront create-invalidation --distribution-id ${env.CLOUDFRONT_ID} --paths "/evoluwill-mfe-${{ inputs.APP_NAME }}"
+          aws s3 sync ./dist s3://${env.BUCKET_S3}/evoluwill-mfe-${inputs.APP_NAME} --delete
+          aws cloudfront create-invalidation --distribution-id ${env.CLOUDFRONT_ID} --paths "/evoluwill-mfe-${inputs.APP_NAME}"
+
+      - name: Datadog sourcemap
+        run: |
+          npx @datadog/datadog-ci sourcemaps upload ./dist \
+            --service=evoluwill-mfe-${inputs.APP_NAME} \
+            --release-version=2.0.1-beta \
+            --minified-path-prefix=https://hostname.com/static/js
