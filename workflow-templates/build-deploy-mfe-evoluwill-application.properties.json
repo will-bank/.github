@@ -1,0 +1,8 @@
+{
+    "name": "Build Deploy MFE Evoluwill Application",
+    "description": "A simple workflow for you to build and deploy your MFE Evoluwill application.",
+    "iconName": "single-spa-logo",
+    "categories": [
+        "Deployment"
+    ]
+}
