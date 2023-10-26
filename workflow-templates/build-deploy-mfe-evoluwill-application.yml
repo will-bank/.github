@@ -35,6 +35,6 @@ jobs:
     uses: will-bank/cxm-workflows/.github/workflows/build-deploy-mfe-evoluwill-application.yml@latest
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      APP_NAME: {{ inputs.APP_NAME }}
-      NODE_VERSION: {{ inputs.NODE_VERSION }}
+      APP_NAME: ${{ inputs.APP_NAME }}
+      NODE_VERSION: ${{ inputs.NODE_VERSION }}
     secrets: inherit
