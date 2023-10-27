@@ -1,0 +1,7 @@
+{
+    "name": "Jira Issues Integration",
+    "description": "This Workflow performs real-time synchronization of Issues from Github to Jira.",
+    "categories": [
+        "Automation"
+    ]
+}
