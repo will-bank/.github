@@ -14,7 +14,6 @@ on:
         default: development
         options:
           - development
-          - staging
           - production
 
 permissions:
@@ -24,12 +23,23 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.13.0
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.20.3
     with:
+    #REQUIRED ARGS
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
-      # DOCKER_BUILD_ARGS: |
-      #   NPM_TOKEN
-      #   BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-      #   BUILD_NUMBER=${{ github.run_number }}
-      #   BUILD_REF=${{ github.sha }}
+
+    #OPTIONAL ARGS
+      #DOCKER_BUILD_ARGS: <Build Args>
+      #DOCKER_BUILD_SECRETS: <Build Secrets>
+      #DOCKER_BUILD_SECRET_FILES: <Build secret files>
+      #USE_DOCKER_CACHE_LAYERS: <true/false> Enable cache layers
+      #BUILD_LIQUIBASE: <true/false> Enable liquibase
+      #INIT_SUBMODULES: <true/false> Enable init sub modules
+      #AWS_ECR_ROLE: <Use different ECR role>
+      #USE_GIT_LFS: <true/false> Enable git LFS
+      
+      #FOR MONOREPO
+      #DOCKERFILE_PATH: <PATH>
+      #IAC_DIR: <DIR>
+
     secrets: inherit
