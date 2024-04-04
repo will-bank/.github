@@ -14,7 +14,6 @@ on:
         default: development
         options:
           - development
-          - staging
           - production
 
 permissions:
@@ -24,7 +23,12 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.2.0
+    uses: will-bank/deploy-kubernetes-application-workflow/.github/workflows/deploy-kubernetes-application.yml@v0.5.1
     with:
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+      
+    #OPTIONAL ARGS
+      #FOR MONOREPO
+      #DOCKERFILE_PATH: <PATH>
+
     secrets: inherit
