@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.20.3
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.22.7
     with:
     #REQUIRED ARGS
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
@@ -41,5 +41,7 @@ jobs:
       #FOR MONOREPO
       #DOCKERFILE_PATH: <PATH>
       #IAC_DIR: <DIR>
+      #KUBERNETES_MANAGER: <kustomize|helm>
+      #IMAGE_KEY: <VALUE>
 
     secrets: inherit
