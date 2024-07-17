@@ -15,6 +15,14 @@ on:
         options:
           - development
           - production
+      # PROMOTE_TAG:
+      #   type: choice
+      #   description: 'Promote the development tag to production'
+      #   required: false
+      #   default: false
+      #   options:
+      #     - false
+      #     - true
 
 permissions:
   id-token: write
@@ -23,7 +31,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.22.7
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.23.8
     with:
     #REQUIRED ARGS
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
@@ -43,5 +51,6 @@ jobs:
       #IAC_DIR: <DIR>
       #KUBERNETES_MANAGER: <kustomize|helm>
       #IMAGE_KEY: <VALUE>
+      #PROMOTE_TAG: ${{ fromJSON(inputs.PROMOTE_TAG) }}
 
     secrets: inherit
