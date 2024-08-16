@@ -1,0 +1,8 @@
+{
+    "name": "Synchronize Documentation PlatGPT Workflow",
+    "description": "A workflow to synchronize github documentation with s3 for PlatGPT utilization.",
+    "iconName": "git-logo",
+    "categories": [
+        "Automation"
+    ]
+}
