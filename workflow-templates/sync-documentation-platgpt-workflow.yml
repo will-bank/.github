@@ -16,5 +16,7 @@ jobs:
   workflow:
     uses: will-bank/sync-documentation-platgpt-workflow/.github/workflows/sync-documentation-platgpt-workflow.yaml@v1.0.0
     with:
-      ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+      MAIN_BRANCH_NAME: 'origin/main' # Branch main do repositório.
+      FILE_EXTENSION: 'md' # Extensão dos arquivos que serão sincronizados
+      EXCLUDE_PATTERN: '.changes' # Excluir algum diretório ou arquivo da sincronização.
     secrets: inherit
