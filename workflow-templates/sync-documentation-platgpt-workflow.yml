@@ -1,5 +1,5 @@
-name: Sync Documentation PlatGPT Workflow
-run-name: Sync Documentation PlatGPT Workflow in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
+name: [Automatic] Sync Documentation PlatGPT Workflow
+run-name: [Automatic] Sync Documentation PlatGPT Workflow in [${{ inputs.ENVIRONMENT }}] by ${{ github.actor }} ${{ github.run_number }}
 
 # Before running this workflow checkout its prerequisites at:
 # https://github.com/will-bank/sync-documentation-platgpt-workflow#readme
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/sync-documentation-platgpt-workflow/.github/workflows/sync-documentation-platgpt-workflow.yaml@v1.0.0
+    uses: will-bank/sync-documentation-platgpt-workflow/.github/workflows/sync-documentation-platgpt-workflow.yml@v1.0.3
     with:
       MAIN_BRANCH_NAME: 'origin/main' # Branch main do repositório.
       FILE_EXTENSION: 'md' # Extensão dos arquivos que serão sincronizados
