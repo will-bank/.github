@@ -1,5 +1,5 @@
-name: [Automatic] Sync Documentation PlatGPT Workflow
-run-name: [Automatic] Sync Documentation PlatGPT Workflow by ${{ github.actor }} ${{ github.run_number }}
+name: "[Automatic] Sync Documentation PlatGPT Workflow"
+run-name: "[Automatic] Sync Documentation PlatGPT Workflow by ${{ github.actor }} ${{ github.run_number }}"
 
 # Before running this workflow checkout its prerequisites at:
 # https://github.com/will-bank/sync-documentation-platgpt-workflow#readme
