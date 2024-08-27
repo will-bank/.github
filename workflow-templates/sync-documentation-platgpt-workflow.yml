@@ -6,6 +6,8 @@ run-name: "[Automatic] Sync Documentation PlatGPT Workflow by ${{ github.actor }
 
 on:
   pull_request:
+    types:
+      - closed
 
 permissions:
   id-token: write
