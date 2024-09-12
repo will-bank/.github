@@ -31,7 +31,7 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.23.8
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.25.9
     with:
     #REQUIRED ARGS
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
