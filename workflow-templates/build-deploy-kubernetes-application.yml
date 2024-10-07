@@ -28,6 +28,7 @@ permissions:
   id-token: write
   contents: write
   actions: write
+  security-events: write
 
 jobs:
   workflow:
