@@ -32,26 +32,31 @@ permissions:
 
 jobs:
   workflow:
-    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.26.9
+    uses: will-bank/build-deploy-kubernetes-application-workflow/.github/workflows/build-deploy-kubernetes-application.yml@v0.33.11
     with:
     #REQUIRED ARGS
       ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
 
-    #OPTIONAL ARGS
-      #DOCKER_BUILD_ARGS: <Build Args>
-      #DOCKER_BUILD_SECRETS: <Build Secrets>
-      #DOCKER_BUILD_SECRET_FILES: <Build secret files>
-      #USE_DOCKER_CACHE_LAYERS: <true/false> Enable cache layers
-      #BUILD_LIQUIBASE: <true/false> Enable liquibase
-      #INIT_SUBMODULES: <true/false> Enable init sub modules
-      #AWS_ECR_ROLE: <Use different ECR role>
-      #USE_GIT_LFS: <true/false> Enable git LFS
+    ## OPTIONAL ARGS
+      # DOCKER_BUILD_ARGS: <Build Args>
+      # DOCKER_BUILD_SECRETS: <Build Secrets>
+      # DOCKER_BUILD_SECRET_FILES: <Build secret files>
+      # USE_DOCKER_CACHE_LAYERS: <true/false> Enable cache layers
+      # BUILD_LIQUIBASE: <true/false> Enable liquibase
+      # INIT_SUBMODULES: <true/false> Enable init sub modules
+      # AWS_ECR_ROLE: <Use different ECR role>
+      # USE_GIT_LFS: <true/false> Enable git LFS
       
-      #FOR MONOREPO
-      #DOCKERFILE_PATH: <PATH>
-      #IAC_DIR: <DIR>
-      #KUBERNETES_MANAGER: <kustomize|helm>
-      #IMAGE_KEY: <VALUE>
-      #PROMOTE_TAG: ${{ fromJSON(inputs.PROMOTE_TAG) }}
+      ## FOR MONOREPO
+      # DOCKERFILE_PATH: <PATH>
+      # IAC_DIR: <DIR>
+      
+      # KUBERNETES_MANAGER: <kustomize|helm>
+      # IMAGE_KEY: <VALUE>
+      # PROMOTE_TAG: ${{ fromJSON(inputs.PROMOTE_TAG) }}
+      # BUILD_RUNNER: ubuntu-latest
+      # DATADOG_VERSION: ""
+      # ECR_IMAGE_NAME: ""
+      # APPLY_LIFECYCLE_POLICY: false
 
     secrets: inherit
